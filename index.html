@@ -3,36 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scholarship Portal</title>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <title>Scholarship</title>
   <style>
     select { cursor: pointer; }
   </style>
-
-  <!-- Google AdSense -->
-  <script async 
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2662227673532895" 
-    crossorigin="anonymous"></script>
-
-  <!-- Google Consent Management Platform (CMP) -->
-  <script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
-  <script>
-    window.__cmp = window.__cmp || function() { 
-      (window.__cmp.q = window.__cmp.q || []).push(arguments)
-    };
-
-    // Initialize CMP with 3 choices
-    window.__cmp('init', {
-      'language': 'en',
-      'consentPage': 'https://www.google.com/adsense/start/',
-      'consentChoices': ['consent', 'do_not_consent', 'manage']
-    });
-
-    // Show consent banner on page load
-    document.addEventListener('DOMContentLoaded', function () {
-      if(window.__cmp) window.__cmp('showConsentUI');
-    });
-  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2662227673532895"
+     crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-gray-50">
@@ -40,14 +17,21 @@
 <header class="text-gray-600 body-font bg-white shadow-sm sticky top-0 z-50">
   <div class="container mx-auto flex p-5 items-center justify-between">
     <h1 class="text-xl font-bold">Find Scholarship By Caste</h1>
-    <div>
-      <a href="privacy_policy.html" class="text-blue-600 hover:underline mr-4">Privacy Policy</a>
-      <a href="about_page.html" class="text-blue-600 hover:underline mr-4">About</a>
-      <a href="contact.html" class="text-blue-600 hover:underline">Contact</a>
+
+    <!-- Top Right Links -->
+    <div class="space-x-4">
+      <a href="privacy_policy.html" class="text-indigo-700 font-medium hover:underline">
+        Privacy Policy
+      </a>
+      <a href="about_page.html" class="text-indigo-700 font-medium hover:underline">
+        About
+      </a>
+      <a href="contact.html" class="text-indigo-700 font-medium hover:underline">
+        Contact
+      </a>
     </div>
   </div>
 </header>
-
 <section class="text-gray-600 body-font">
   <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
     
@@ -98,48 +82,51 @@
   </div>
 </section>
 
-<!-- Google Ad Example -->
-<div class="my-8 text-center">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-2662227673532895"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
-
 <script>
+
 const scholarships = [
+
+  // SC
   { name: "Pre-Matric Scholarship (SC)", caste: "SC", link: "Pre-matric_scholarship.html" },
   { name: "Post-Matric Scholarship (SC)", caste: "SC", link: "post_matrics.html" },
   { name: "Top Class Education Scholarship (SC)", caste: "SC", link: "top_education.html" },
   { name: "State-Specific SC Scholarships", caste: "SC", link: "State_specific.html" },
+
+  // ST
   { name: "Pre-Matric Scholarship (ST)", caste: "ST", link: "Pre-matric_scholarship.html" },
   { name: "Post-Matric Scholarship (ST)", caste: "ST", link: "post_matrics.html" },
   { name: "Gagan Bharari Shiksha Yojana", caste: "ST", link: "gagan_bharari.html" },
   { name: "Merit Based Scholarship Scheme", caste: "ST", link: "merit_based.html" },
   { name: "Home Nursing Scholarship", caste: "ST", link: "home_nursing.html" },
   { name: "ITI/Skill Scholarship", caste: "ST", link: "skill.html" },
+
+  // OBC
   { name: "Pre-Matric Scholarship (OBC)", caste: "OBC", link: "Pre-matric_scholarship.html" },
   { name: "Post-Matric Scholarship (OBC)", caste: "OBC", link: "post_matrics.html" },
   { name: "State OBC Merit Scholarship", caste: "OBC", link: "state_OBC_merit.html" },
+
+  // Combined
   { name: "Annual Aid up to ₹48,000", caste: "Combined", link: "annual_aid_up.html" },
   { name: "Merit/Performance Based Scholarships", caste: "Combined", link: "merit_performanced_based.html" }
+
 ];
 
 function filterSchemes() {
+
   const caste = document.getElementById("casteSelect").value;
   const select = document.getElementById("yojnaSelect");
+
   select.innerHTML = "";
+
   if (!caste) {
     select.innerHTML = '<option disabled selected>Eligible Scholarship List</option>';
     return;
   }
+
   const filtered = scholarships.filter(s => s.caste === caste);
+
   select.innerHTML = '<option disabled selected>Select Scholarship</option>';
+
   filtered.forEach(item => {
     const opt = document.createElement("option");
     opt.textContent = "🎓 " + item.name;
@@ -154,11 +141,19 @@ document.getElementById("yojnaSelect").addEventListener("change", function() {
     window.location.href = this.value;
   }
 });
-</script>
 
-<footer class="bg-gray-800 text-white text-center py-8 mt-12">
-  <p>© 2026 Scholarship Portal | All Rights Reserved</p>
-  <a href="term_and_condition.html" class="text-blue-400 hover:underline block mt-2">Terms & Conditions</a>
+</script>
+<!-- Footer -->
+<footer class="bg-gray-100 text-center py-6 mt-10 shadow-inner relative">
+
+    <!-- Terms & Conditions Link at bottom -->
+    <div class="mt-20 mb-4">
+        <a href="terms_conditions.html" class="text-indigo-600 hover:text-indigo-800 font-semibold text-lg">
+            Terms & Conditions
+        </a>
+    </div>
+
+    <p class="text-gray-600 mt-4">© 2026 WebScholarship | All Rights Reserved</p>
 </footer>
 
 </body>
