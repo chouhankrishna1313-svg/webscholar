@@ -3,131 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scholarship Portal</title>
+  <title>Scholarship Portal - Find Government Schemes</title>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    select { cursor: pointer; }
-  </style>
-
-  <!-- Google AdSense -->
+  
   <script async 
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2662227673532895" 
     crossorigin="anonymous"></script>
 
-  <!-- Google Consent Management Platform (CMP) -->
-  <script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
-  <script>
-    window.__cmp = window.__cmp || function() { 
-      (window.__cmp.q = window.__cmp.q || []).push(arguments)
-    };
-
-    // Initialize CMP with 3 choices
-    window.__cmp('init', {
-      'language': 'en',
-      'consentPage': 'https://www.google.com/adsense/start/',
-      'consentChoices': ['consent', 'do_not_consent', 'manage']
-    });
-
-    // Show consent banner on page load
-    document.addEventListener('DOMContentLoaded', function () {
-      if(window.__cmp) window.__cmp('showConsentUI');
-    });
-  </script>
+  <style>
+    select { cursor: pointer; }
+    .content-area { line-height: 1.8; color: #374151; }
+  </style>
 </head>
 
 <body class="bg-gray-50">
 
 <header class="text-gray-600 body-font bg-white shadow-sm sticky top-0 z-50">
   <div class="container mx-auto flex p-5 items-center justify-between">
-    <h1 class="text-xl font-bold">Find Scholarship By Caste</h1>
-    <div>
-      <a href="privacy_policy.html" class="text-blue-600 hover:underline mr-4">Privacy Policy</a>
-      <a href="about_page.html" class="text-blue-600 hover:underline mr-4">About</a>
-      <a href="contact.html" class="text-blue-600 hover:underline">Contact</a>
-    </div>
+    <a href="/" class="text-xl font-bold text-blue-600">Scholarship Hub</a>
+    <nav>
+      <a href="about_page.html" class="text-gray-600 hover:text-blue-600 mr-4">About</a>
+      <a href="contact.html" class="text-gray-600 hover:text-blue-600 mr-4">Contact</a>
+      <a href="privacy_policy.html" class="text-gray-600 hover:text-blue-600">Privacy Policy</a>
+    </nav>
   </div>
 </header>
 
 <section class="text-gray-600 body-font">
   <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
     
-    <!-- Left Side -->
-    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 
-      flex flex-col md:items-start md:text-left mb-16 md:mb-0 
-      items-center text-center">
-
+    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">
-        Service to the People
+        Check Your Scholarship Eligibility
       </h1>
-
-      <p class="mb-6 leading-relaxed text-lg">
-        Select your category to check eligible government scholarships.
+      <p class="mb-6 leading-relaxed text-lg text-gray-600">
+        Easily find state and central government scholarships based on your category.
       </p>
 
-      <!-- Category Dropdown -->
-      <div class="mb-4">
-        <label class="block text-gray-700 font-medium mb-2">
-          Select Your Category
-        </label>
-
+      <div class="mb-4 w-full max-w-sm">
+        <label class="block text-gray-700 font-medium mb-2">Select Your Category</label>
         <select id="casteSelect" onchange="filterSchemes()" 
-          class="bg-gray-100 border border-gray-300 rounded px-4 py-2 w-80 focus:outline-none">
-          <option value="">-- Select Category --</option>
-          <option value="SC">SC (अनुसूचित जाति)</option>
-          <option value="ST">ST (अनुसूचित जनजाति)</option>
-          <option value="OBC">OBC (अन्य पिछड़ा वर्ग)</option>
-          <option value="Combined">SC/ST/OBC Combined</option>
+          class="bg-white border border-gray-300 rounded px-4 py-3 w-full focus:ring-2 focus:ring-blue-500 outline-none">
+          <option value="">-- Choose Category --</option>
+          <option value="SC">SC (Scheduled Caste)</option>
+          <option value="ST">ST (Scheduled Tribe)</option>
+          <option value="OBC">OBC (Other Backward Class)</option>
+          <option value="Combined">General/Combined</option>
         </select>
       </div>
 
-      <!-- Scholarship List -->
-      <select id="yojnaSelect"
-        class="bg-gray-100 border border-gray-300 rounded px-4 py-2 w-96 focus:outline-none h-10">
-        <option disabled selected>Eligible Scholarship List</option>
-      </select>
-
+      <div class="mb-8 w-full max-w-sm">
+        <label class="block text-gray-700 font-medium mb-2">Available Scholarships</label>
+        <select id="yojnaSelect"
+          class="bg-white border border-gray-300 rounded px-4 py-3 w-full focus:ring-2 focus:ring-blue-500 outline-none">
+          <option disabled selected>Select from list...</option>
+        </select>
+      </div>
     </div>
 
-    <!-- Right Side Image -->
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
       <img class="object-cover object-center rounded-lg shadow-xl" 
-        alt="government service" 
-        src="https://plus.unsplash.com/premium_photo-1674591172888-1184c4170a47?w=800&auto=format&fit=crop&q=60">
+        alt="Education Scholarship" 
+        src="https://media.gettyimages.com/id/684899944/vector/scholarship-infographic-with-8-steps-parts-options.jpg?s=1024x1024&w=gi&k=20&c=k5Vw3SbQdIMlqK42ZFSCJZEfIEoNd2BDIJdMJhPr0kc=">
     </div>
-
   </div>
 </section>
 
-<!-- Google Ad Example -->
-<div class="my-8 text-center">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-2662227673532895"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+<div class="container mx-auto px-5 py-4">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2662227673532895"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
 </div>
+
+<article class="container mx-auto px-5 py-12 content-area bg-white rounded-lg shadow-sm border border-gray-100">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Apply for Scholarships in 2026?</h2>
+    <p class="mb-4">Finding the right scholarship is crucial for students from SC, ST, and OBC categories. Our portal simplifies this by categorizing schemes based on government guidelines. Whether you are looking for Pre-Matric or Post-Matric aid, follow these steps:</p>
+    <ul class="list-disc ml-6 mb-6">
+        <li><strong>Check Eligibility:</strong> Use the dropdown above to see which schemes match your category.</li>
+        <li><strong>Required Documents:</strong> Keep your Caste Certificate, Income Certificate, and Marksheets ready.</li>
+        <li><strong>Official Portals:</strong> Always apply through the National Scholarship Portal (NSP) or state-specific websites.</li>
+    </ul>
+    <p>We update our database regularly to ensure you don't miss any deadlines. Make sure to read the terms and conditions of each scholarship before applying.</p>
+</article>
 
 <script>
 const scholarships = [
   { name: "Pre-Matric Scholarship (SC)", caste: "SC", link: "Pre-matric_scholarship.html" },
   { name: "Post-Matric Scholarship (SC)", caste: "SC", link: "post_matrics.html" },
-  { name: "Top Class Education Scholarship (SC)", caste: "SC", link: "top_education.html" },
-  { name: "State-Specific SC Scholarships", caste: "SC", link: "State_specific.html" },
+  { name: "Top Class Education (SC)", caste: "SC", link: "top_education.html" },
   { name: "Pre-Matric Scholarship (ST)", caste: "ST", link: "Pre-matric_scholarship.html" },
   { name: "Post-Matric Scholarship (ST)", caste: "ST", link: "post_matrics.html" },
-  { name: "Gagan Bharari Shiksha Yojana", caste: "ST", link: "gagan_bharari.html" },
-  { name: "Merit Based Scholarship Scheme", caste: "ST", link: "merit_based.html" },
-  { name: "Home Nursing Scholarship", caste: "ST", link: "home_nursing.html" },
-  { name: "ITI/Skill Scholarship", caste: "ST", link: "skill.html" },
+  { name: "Gagan Bharari Yojana", caste: "ST", link: "gagan_bharari.html" },
   { name: "Pre-Matric Scholarship (OBC)", caste: "OBC", link: "Pre-matric_scholarship.html" },
   { name: "Post-Matric Scholarship (OBC)", caste: "OBC", link: "post_matrics.html" },
-  { name: "State OBC Merit Scholarship", caste: "OBC", link: "state_OBC_merit.html" },
-  { name: "Annual Aid up to ₹48,000", caste: "Combined", link: "annual_aid_up.html" },
-  { name: "Merit/Performance Based Scholarships", caste: "Combined", link: "merit_performanced_based.html" }
+  { name: "Merit Based Aid", caste: "Combined", link: "merit_performanced_based.html" }
 ];
 
 function filterSchemes() {
@@ -135,7 +108,7 @@ function filterSchemes() {
   const select = document.getElementById("yojnaSelect");
   select.innerHTML = "";
   if (!caste) {
-    select.innerHTML = '<option disabled selected>Eligible Scholarship List</option>';
+    select.innerHTML = '<option disabled selected>Select Category First</option>';
     return;
   }
   const filtered = scholarships.filter(s => s.caste === caste);
@@ -148,17 +121,17 @@ function filterSchemes() {
   });
 }
 
-// Redirect when selected
 document.getElementById("yojnaSelect").addEventListener("change", function() {
-  if (this.value) {
-    window.location.href = this.value;
-  }
+  if (this.value) { window.location.href = this.value; }
 });
 </script>
 
-<footer class="bg-gray-800 text-white text-center py-8 mt-12">
-  <p>© 2026 Scholarship Portal | All Rights Reserved</p>
-  <a href="term_and_condition.html" class="text-blue-400 hover:underline block mt-2">Terms & Conditions</a>
+<footer class="bg-gray-800 text-white text-center py-10 mt-12">
+  <p>© 2026 Scholarship Portal | Information Purpose Only</p>
+  <div class="mt-4">
+      <a href="term_and_condition.html" class="text-blue-400 hover:underline mx-2">Terms</a>
+      <a href="privacy_policy.html" class="text-blue-400 hover:underline mx-2">Privacy</a>
+  </div>
 </footer>
 
 </body>
